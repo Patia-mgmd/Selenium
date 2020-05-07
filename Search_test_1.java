@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class Search_test_1 {
 
     public static void main(String[] args) {
-        //System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Selenium\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Selenium\\chromedriver_win32\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
@@ -21,8 +21,7 @@ public class Search_test_1 {
         input.sendKeys("Selenium");
         input.submit();
         
-        WebElement div = driver.findElement(By.className("page__body"));
-        List<WebElement> links = div.findElements(By.className("post__title"));
+        List<WebElement> links = driver.findElements(By.xpath("//div[@class='page__body']//h2[@class='post__title']"));
 
         System.out.println("Результат поиска:" + links.size());
 
